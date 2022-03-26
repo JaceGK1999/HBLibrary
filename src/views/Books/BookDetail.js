@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Book from '../../components/book/Book';
 import { getBookById } from '../../services/books';
 
@@ -12,7 +13,14 @@ function BookDetail() {
 
   if (!book) return <h3>Loading book...</h3>;
 
-  return <Book book={book} showDetail />;
+  return (
+    <div>
+      <h3>
+        Back to <NavLink to="/books">catalog</NavLink>
+      </h3>
+      <Book book={book} showDetail />;
+    </div>
+  );
 }
 
 export default BookDetail;
